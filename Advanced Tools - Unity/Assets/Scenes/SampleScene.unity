@@ -562,7 +562,12 @@ MonoBehaviour:
   - {fileID: 8385823731689847877, guid: 9241232efdae99a4c9d9c595140a4d94, type: 3}
   - {fileID: 5120703987903423521, guid: 5578ae6cae7488a4d883b9058fb7af0b, type: 3}
   - {fileID: 2709103569224931970, guid: 7ea50a92bcd2f5d468c5b45d58f3cada, type: 3}
+  - {fileID: 2204875082884277754, guid: 4f20e63bb3697b54f9a9b828129f1c72, type: 3}
   - {fileID: 6243048679207148103, guid: 82414523d6249964f9819fbec1eb58a7, type: 3}
+  - {fileID: 7306528784820721568, guid: d80fababecd96684dbe4c5cc3a8e314f, type: 3}
+  - {fileID: 3394966863388685856, guid: 3abbb8323a0bbcd4698ed74182f8c59a, type: 3}
+  - {fileID: 871491394352472865, guid: 85f49c6017abc0a4aab6e8e3c983c87d, type: 3}
+  - {fileID: 2613843453819514740, guid: 99b10431aa0963048919629a35d8cc43, type: 3}
   _slider: {fileID: 614229505}
   _dropdown: {fileID: 1618761960}
 --- !u!1 &436101154
@@ -837,7 +842,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1211362867}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 50000
+  m_MaxValue: 100000
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -880,6 +885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 905652509}
+  _increments: 1000
 --- !u!1 &778339987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,7 +2128,17 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: 2,000 Tris
       m_Image: {fileID: 0}
+    - m_Text: 10,000 Tris
+      m_Image: {fileID: 0}
     - m_Text: 20,000 Tris
+      m_Image: {fileID: 0}
+    - m_Text: 30,000 Tris
+      m_Image: {fileID: 0}
+    - m_Text: 40,000 Tris
+      m_Image: {fileID: 0}
+    - m_Text: 50,000 Tris
+      m_Image: {fileID: 0}
+    - m_Text: 60,000 Tris
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
