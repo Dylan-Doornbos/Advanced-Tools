@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class PhysicsSpawner : MonoBehaviour
 {
     [SerializeField] private int _amountToSpawn;
     [SerializeField] private Rigidbody _prefab;
+
+    [SerializeField] private customSlider customSlider;
 
     private Rigidbody[] _cachedRbRigidbodies;
 
@@ -19,9 +22,9 @@ public class PhysicsSpawner : MonoBehaviour
         }
     }
 
-    public void SetAmountToSpawn(int amount)
+    public void SetAmountToSpawn(Single amount)
     {
-        _amountToSpawn = amount;
+        _amountToSpawn = (int)amount;
     }
 
     public void SetPhysics(bool isEnabled)
@@ -62,6 +65,8 @@ public class PhysicsSpawner : MonoBehaviour
     // Update is called once per frame
     public void Spawn()
     {
+        clear();
+        _amountToSpawn = customSlider.GetValue();
         _cachedRbRigidbodies = new Rigidbody[_amountToSpawn];
         
         int totalPerLevel = 100;
@@ -70,8 +75,8 @@ public class PhysicsSpawner : MonoBehaviour
         for (int i = 0; i < _amountToSpawn; i++)
         {
             float x = (i % totalPerLevel) % columns + 0.5f;
-            float z = (i % totalPerLevel) / columns + 0.5f;
             float y = i / totalPerLevel + 0.5f;
+            float z = (i % totalPerLevel) / columns + 0.5f;
 
             Rigidbody rb = Instantiate(_prefab, transform.position + new Vector3(x, y, -z), Quaternion.identity, transform);
 

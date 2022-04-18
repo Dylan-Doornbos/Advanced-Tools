@@ -14,8 +14,8 @@ public class FPSUI : MonoBehaviour
     {
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.AppendFormat("Min: {0}\nMax: {1}\nAverage: {2}", _counter._minFPS, _counter._maxFPS,
-            _counter._averageFPS);
+            //stringBuilder.AppendFormat("Min: {0}\nMax: {1}\nAverage: {2}", _counter._minFPS, _counter._maxFPS,
+            //_counter._averageFPS);
 
         _fpsText.text = stringBuilder.ToString();
     }

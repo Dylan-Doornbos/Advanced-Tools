@@ -12,6 +12,8 @@ public class ObjectPlacer : MonoBehaviour
     private Camera _camera;
     private float totalWidth = 0;
 
+    private bool isStatic = true;
+
     private void Awake()
     {
         _camera = Camera.main;
@@ -43,6 +45,7 @@ public class ObjectPlacer : MonoBehaviour
 
             GameObject obj = Instantiate(prefab, new Vector3(x, -y, 1) + transform.position, prefab.transform.rotation, transform);
             obj.transform.localScale = obj.transform.localScale * cellSize;
+            obj.isStatic = isStatic;
 
             spawnCount++;
         }
@@ -55,6 +58,16 @@ public class ObjectPlacer : MonoBehaviour
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
             Destroy(transform.GetChild(i).gameObject);
+        }
+    }
+
+    public void SetStatic(bool isStatic)
+    {
+        this.isStatic = isStatic;
+
+        foreach (Transform child in transform)
+        {
+            child.gameObject.isStatic = isStatic;
         }
     }
 }

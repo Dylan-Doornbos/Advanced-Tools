@@ -4,11 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Slider : MonoBehaviour
+public class customSlider : MonoBehaviour
 {
     private UnityEngine.UI.Slider _slider;
     [SerializeField] private Text _text;
     [SerializeField] private int _increments;
+
+    public int GetValue()
+    {
+        return Mathf.CeilToInt(_slider.value / _increments) * _increments;
+    }
 
     private void Awake()
     {

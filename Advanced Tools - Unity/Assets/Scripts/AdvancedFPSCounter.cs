@@ -1,23 +1,38 @@
+
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AdvancedFPSCounter : MonoBehaviour
 {
-    public float _averageFPS => _totalFrames / _timePassed;
-    public float _minFPS { get; private set; }
-    public float _maxFPS { get; private set; }
+    [SerializeField] private float _sampleDuration = 1;
+    [SerializeField] private Text _fpsText;
 
+    private float _sinceLastLog = 0;
+    private int _frames = 0;
     
-    private int _totalFrames;
-    private float _timePassed;
-
     private void Update()
     {
-        _totalFrames++;
-        _timePassed += Time.deltaTime;
-        
-        float fpsThisFrame = 1 / Time.deltaTime;
+        _sinceLastLog += Time.deltaTime;
+        _frames++;
 
-        _minFPS = fpsThisFrame < _minFPS ? fpsThisFrame : _minFPS;
-        _maxFPS = fpsThisFrame > _maxFPS ? fpsThisFrame : _maxFPS;
+        if (_sinceLastLog >= _sampleDuration)
+        {
+            log((int)(_frames / _sinceLastLog));
+            
+            _sinceLastLog = 0;
+            _frames = 0;
+        }
+    }
+
+    private void log(int fps)
+    {
+        _fpsText.text += $"{fps}\n";
+    }
+    
+    public void Reset()
+    {
+        _sinceLastLog = 0;
+        _frames = 0;
+        _fpsText.text = "";
     }
 }
